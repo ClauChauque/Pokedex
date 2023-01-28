@@ -1,0 +1,65 @@
+*{
+    margin: 1%;
+    padding: 2%;
+}
+
+h1{
+    font-size: 1.5em;
+    padding-bottom: 0;
+}
+
+.parteSuperior{
+    display: grid;
+    grid-template-columns: 38% 62%;
+    grid-template-rows: 90% 90%;
+
+    align-items: center;
+    justify-content: stretch;
+    
+    height: 100%;
+
+    background-color: rgba(238, 248, 255, 0.342);
+}
+
+.pickListTipo{
+    margin: 0;
+    padding: 0;
+}
+
+.generacion button{
+    margin: 5% 2%;
+    padding: 0;
+
+    border: none;
+    width: 10vh;
+    height: 60px;
+
+    align-content: center;
+    border-radius: 10px;
+
+}
+
+.generacion div{
+    border: none;
+}
+
+.buscador{
+    border: rgba(245, 245, 245, 0.603) 1px solid;
+    border-radius: 5px;
+
+}
+.inputBuscador{
+    margin-top: 0;
+}
+
+
+.datable{
+    margin: 1%;
+    background-color: rgba(238, 248, 255, 0.342);
+    height: 500px;
+}
+
+
+.generacion button:hover{
+    background-color: rgb(211, 211, 211);
+}

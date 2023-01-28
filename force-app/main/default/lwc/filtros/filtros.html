@@ -1,0 +1,102 @@
+<template>
+    <div class="parteSuperior">
+        <!-- PICKLIST TIPO -->
+        <div class="componenteLWC picklist">
+            <lightning-card class="picklist">
+                <div class="pickListTipo">
+                    <h1>Tipo</h1>
+                    <lightning-dual-listbox name="type"
+                                            label="Seleccione el tipo de pokemon a filtrar"
+                                            source-label="Disponibles"
+                                            selected-label="Seleccionados"
+                                            field-level-help="Seleccione el Tipo de pokemon que desea filtrar y use las flechas para añadirlo o quitarlo de la lista Seleccionados"
+                                            options={options}
+                                            onchange={handleChange}>
+                    </lightning-dual-listbox>
+                    <div class="slds-box" >
+                        <p>Selected values are: {selected}</p>
+                    </div>
+                </div>
+            </lightning-card>
+        </div>
+        <div class="parteDerecha">
+            <!-- COMBOBOX GENERACIÓN -->
+            <div class="generacion slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none">
+                <h1>Generación :</h1>
+                <lightning-layout>
+                    <button>
+                        <lightning-layout-item flexibility="auto" padding="around-small">
+                            <div class="custom-box slds-box slds-p-around_medium slds-text-align_center">1</div>
+                        </lightning-layout-item>
+                    </button>
+
+                    <button>
+                        <lightning-layout-item flexibility="auto" padding="around-small">
+                            <div class="custom-box slds-box slds-p-around_medium slds-text-align_center">2</div>
+                        </lightning-layout-item>
+                    </button>
+
+                    <button>
+                        <lightning-layout-item flexibility="auto, no-grow" padding="around-small">
+                            <div class="custom-box slds-box slds-p-around_medium slds-text-align_center">3</div>
+                        </lightning-layout-item>
+                    </button>
+
+                    <button>
+                        <lightning-layout-item flexibility="auto" padding="around-small">
+                            <div class="custom-box slds-box slds-p-around_medium slds-text-align_center">4</div>
+                        </lightning-layout-item>
+                    </button>
+
+                    <button>
+                        <lightning-layout-item flexibility="auto" padding="around-small">
+                            <div class="custom-box slds-box slds-p-around_medium slds-text-align_center">5</div>
+                        </lightning-layout-item>
+                    </button>
+
+                    <button>
+                        <lightning-layout-item flexibility="auto" padding="around-small">
+                            <div class="custom-box slds-box slds-p-around_medium slds-text-align_center">6</div>
+                        </lightning-layout-item>
+                    </button>
+
+                    <button>
+                        <lightning-layout-item flexibility="auto" padding="around-small">
+                            <div class="custom-box slds-box slds-p-around_medium slds-text-align_center">7</div>
+                        </lightning-layout-item>
+                    </button>
+
+                    <button>
+                        <lightning-layout-item flexibility="auto" padding="around-small">
+                            <div class="custom-box slds-box slds-p-around_medium slds-text-align_center">8</div>
+                        </lightning-layout-item>
+                    </button>
+
+                </lightning-layout>
+            </div>
+            <!-- BUSCADOR POKEMONS -->
+            <div class="componenteLWC buscador">
+                <h1>Ingrese el nombre del Pokemon : </h1>
+                <div class="inputBuscador" onkeyup={handleKeyUp}>
+                    <lightning-input
+                        type="search"
+                        placeholder="ej: Charmander"
+                    ></lightning-input>
+                </div>
+                <p if:true={queryTerm}>
+                    Searched for {queryTerm}!
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- TABLA POKEMONS -->
+    <div class="datable">
+        <lightning-datatable
+            key-field="id"
+            data={pokemons.data}
+            show-row-number-column
+            hide-checkbox-column
+            columns={columns}>
+        </lightning-datatable>
+    </div>
+</template>
